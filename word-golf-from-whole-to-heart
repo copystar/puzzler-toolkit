@@ -1,0 +1,196 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# word golf from whole to heart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "def word_golf(word_list):\n",
+    "    matches = [];\n",
+    "    for word in word_list:\n",
+    "        textfile = open('my_dictionary', 'r')\n",
+    "        reg = re.compile(word)\n",
+    "        for line in textfile:\n",
+    "            matches += reg.findall(line)\n",
+    "        textfile.close();\n",
+    "    print (set(matches));"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'while', 'whose', 'whale', 'whore', 'whole'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# word golf : FIRST SUBSTITUTION : whole\n",
+    "word_golf([\"^.hole$\", \"^.hole$\", \"^wh.le$\", \"^who.e$\", \"^whol.$\" ]);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'whole', 'shale', 'whale', 'while'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# word golf : SECOND SUB : whale\n",
+    "word_golf([\"^.hale$\", \"^.hale$\", \"^wh.le$\", \"^wha.e$\", \"^whal.$\" ]);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'whale', 'Chile', 'white', 'whole', 'chile', 'whine', 'while'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# word golf : SECOND SUB : while\n",
+    "word_golf([\"^.hile$\", \"^.hile$\", \"^wh.le$\", \"^whi.e$\", \"^whil.$\" ]);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'chore', 'whole', 'where', 'whorl', 'whore', 'shore', 'whose'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# word golf : SECOND SUB : whore\n",
+    "word_golf([\"^.hore$\", \"^w.ore$\", \"^wh.re$\", \"^who.e$\", \"^whor.$\" ]);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'whose', 'whore', 'chose', 'those', 'whole'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# word golf : SECOND SUB : whose\n",
+    "word_golf([\"^.hose$\", \"^w.ose$\", \"^wh.se$\", \"^who.e$\", \"^whos.$\" ]);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'whale', 'shale', 'Chile', 'chore', 'white', 'whole', 'where', 'whorl', 'whore', 'chile', 'shore', 'chose', 'whine', 'whose', 'those', 'while'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "#second substiution possibilities\n",
+    "second_wordlist = ['whale', 'while', 'shale', 'whole','while', 'whine', 'Chile', 'white', 'whale', 'chile', 'whole', 'where', 'whorl', 'chore', 'shore', 'whore', 'whose', 'whole', 'those', 'chose', 'whore', 'whose', 'whole'];\n",
+    "print (set(second_wordlist));"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.4.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
